@@ -59,8 +59,8 @@ export const STORY = {
   SIGNAL: {
     eyebrow: "HAWKINS NATIONAL LABORATORY — CLASSIFIED SIGNAL DETECTED",
     title: ["UPSIDE", "DOWNED"],
-    body: "An encrypted frequency is bleeding through the campus network. Someone — or something — is trying to reach us from the other side.",
-    tag: "HACKATHON 2025 // FREQUENCY: 14.8 MHz",
+    body: "An encrypted frequency is bleeding. Someone — or something — is trying to reach us from the other side.",
+    tag: "IGNIZ'26 // FREQUENCY: 14.8 MHz",
   },
   ORIGIN: {
     eyebrow: "SUBJECT FILE — 011 // BORN IN DARKNESS",

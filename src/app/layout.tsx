@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "UPSIDE DOWNED — Hackathon 2025",
+  title: "UPSIDE DOWNED — IGNIZ'26",
   description:
     "She is still trapped. The Gate fractured. Engineers are needed to bring Eleven home. Join the Hackathon.",
   keywords: ["hackathon", "stranger things", "upside down", "eleven", "coding"],

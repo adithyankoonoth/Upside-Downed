@@ -5,11 +5,13 @@ import { motion, AnimatePresence } from "framer-motion";
 
 interface LoadingScreenProps {
   onComplete: () => void;
+  onEnter: () => void;
 }
 
-export function LoadingScreen({ onComplete }: LoadingScreenProps) {
+export function LoadingScreen({ onComplete, onEnter }: LoadingScreenProps) {
   const [progress, setProgress] = useState(0);
-  const [status, setStatus] = useState("INITIALIZING NEURAL BRIDGE...");
+  const [status, setStatus]   = useState("INITIALIZING NEURAL BRIDGE...");
+  const [ready, setReady]     = useState(false);
 
   const statuses = [
     "INITIALIZING NEURAL BRIDGE...",
@@ -18,7 +20,7 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
     "DECRYPTING 14.8 MHz SIGNAL...",
     "ESTABLISHING UPSIDE DOWN LINK...",
     "WARNING: TOXIC ATMOSPHERE DETECTED",
-    "ACCESS GRANTED // DESCEND AT YOUR OWN RISK",
+    "READY",
   ];
 
   useEffect(() => {
@@ -28,16 +30,22 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
       if (p >= 100) {
         p = 100;
         clearInterval(interval);
-        setTimeout(onComplete, 600);
+        setReady(true);
       }
       setProgress(Math.min(p, 100));
-      const idx = Math.min(Math.floor((p / 100) * statuses.length), statuses.length - 1);
+      const idx = Math.min(
+        Math.floor((p / 100) * statuses.length),
+        statuses.length - 1
+      );
       setStatus(statuses[idx]);
     }, 120);
-
     return () => clearInterval(interval);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const handleEnter = () => {
+    onEnter();    // starts music
+    onComplete(); // hides loading screen
+  };
 
   return (
     <motion.div
@@ -52,19 +60,13 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
         </div>
         <h1
           className="font-bebas text-6xl md:text-8xl"
-          style={{
-            color: "#ff1a1a",
-            textShadow: "0 0 40px #ff1a1aaa",
-          }}
+          style={{ color: "#ff1a1a", textShadow: "0 0 40px #ff1a1aaa" }}
         >
           UPSIDE DOWNED
         </h1>
-        <div className="font-vt323 text-signal/60 text-sm mt-2 tracking-widest">
-          HACKATHON 2025
-        </div>
       </div>
 
-      {/* Loading bar */}
+      {/* Progress bar */}
       <div className="w-72 md:w-96 mb-4">
         <div className="flex justify-between font-vt323 text-xs text-ash/50 mb-2">
           <span>LOADING VOID ENVIRONMENT</span>
@@ -74,31 +76,36 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
           <motion.div
             className="absolute top-0 left-0 h-full bg-rift"
             style={{ width: `${progress}%`, boxShadow: "0 0 10px #ff1a1a" }}
-            transition={{ duration: 0.1 }}
           />
         </div>
       </div>
 
-      {/* Status text */}
-      <div className="font-vt323 text-xs tracking-widest text-ash/50 h-4">
+      {/* Status */}
+      <div className="font-vt323 text-xs tracking-widest text-ash/50 h-5 mb-8">
         {status}
       </div>
 
-      {/* Animated dots */}
-      <div className="mt-8 flex gap-2">
-        {[0, 1, 2].map((i) => (
-          <div
-            key={i}
-            className="w-1 h-1 rounded-full bg-rift animate-pulse"
+      {/* Enter button — appears when loading is done */}
+      <AnimatePresence>
+        {ready && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            onClick={handleEnter}
+            className="font-bebas text-2xl tracking-[0.3em] px-10 py-3 border-2 border-rift cursor-pointer"
             style={{
-              animationDelay: `${i * 0.3}s`,
-              boxShadow: "0 0 6px #ff1a1a",
+              color: "#ff1a1a",
+              boxShadow: "0 0 30px #ff1a1a88",
+              background: "#02040888",
+              animation: "pulse 1.5s ease-in-out infinite",
             }}
-          />
-        ))}
-      </div>
+          >
+            ENTER THE VOID
+          </motion.button>
+        )}
+      </AnimatePresence>
 
-      {/* Scanlines */}
       <div className="scanlines absolute inset-0 pointer-events-none" />
     </motion.div>
   );

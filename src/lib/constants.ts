@@ -95,7 +95,7 @@ export const STORY = {
       "ACTIVE GATE BREACHES: 47 DETECTED",
       "———————————————————————————",
       "THE CLOCK IS TICKING.",
-      "BUILD SOMETHING THAT BRINGS HER HOME.",
+      "BUILD SOMETHING THAT HELPS HER SURVIVE OR BRINGS HER HOME .",
     ],
   },
 };

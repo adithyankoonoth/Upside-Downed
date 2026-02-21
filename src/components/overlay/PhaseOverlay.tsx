@@ -260,15 +260,15 @@ function PhaseClimax({ active }: { active: boolean }) {
   const done = lineIdx >= lines.length;
 
   return (
-    <div className="flex flex-col items-center justify-center h-full px-4 md:px-8 text-center">
+    <div className="flex flex-col items-center justify-center h-full px-4 md:px-8 text-center overflow-y-auto py-4">
 
-      {/* Big title */}
+      {/* Big title — smaller on desktop so everything fits */}
       <motion.h2
         initial={{ opacity: 0, scale: 0.93 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
-        className="font-bebas leading-none mb-8"
-        style={{ fontSize: "clamp(3rem, 12vw, 9rem)", color: "#ff1a1a", textShadow: "0 0 40px #ff1a1aaa, 0 0 100px #ff1a1a44" }}
+        className="font-bebas leading-none mb-4 md:mb-5"
+        style={{ fontSize: "clamp(2rem, 8vw, 6rem)", color: "#ff1a1a", textShadow: "0 0 40px #ff1a1aaa, 0 0 100px #ff1a1a44" }}
       >
         THE SHADOW STORM
         <br />
@@ -280,10 +280,10 @@ function PhaseClimax({ active }: { active: boolean }) {
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.5 }}
-        className="w-full max-w-lg border border-signal/25 bg-void/85 backdrop-blur-sm p-4 md:p-6 mb-8 text-left"
+        className="w-full max-w-lg border border-signal/25 bg-void/85 backdrop-blur-sm p-3 md:p-5 mb-4 text-left"
         style={{ boxShadow: "0 0 50px #00c8ff18, inset 0 0 30px #00c8ff08" }}
       >
-        <div className="flex items-center gap-2 border-b border-signal/15 pb-3 mb-4">
+        <div className="flex items-center gap-2 border-b border-signal/15 pb-2 mb-3">
           <div className="w-2 h-2 rounded-full bg-rift/80" />
           <div className="w-2 h-2 rounded-full bg-toxic/60" />
           <div className="w-2 h-2 rounded-full bg-signal/60" />
@@ -296,7 +296,7 @@ function PhaseClimax({ active }: { active: boolean }) {
           const isDivider = line.startsWith("——");
           const isLast    = i === lines.length - 1;
           return (
-            <div key={i} className="flex gap-2 mb-1 font-vt323 text-sm md:text-base">
+            <div key={i} className="flex gap-2 mb-0.5 font-vt323 text-sm">
               {!isDivider && <span className="text-rift/50 flex-shrink-0">{i < 5 ? ">>>" : "   "}</span>}
               <span style={{
                 color: isWarning ? "#ff1a1a" : isDivider ? "#ffffff22" : isLast ? "#39ff14" : "#00c8ff",
@@ -309,35 +309,35 @@ function PhaseClimax({ active }: { active: boolean }) {
           );
         })}
         {done && (
-          <div className="flex items-center gap-2 mt-3 font-vt323 text-sm text-toxic">
+          <div className="flex items-center gap-2 mt-2 font-vt323 text-sm text-toxic">
             <span style={{ textShadow: "0 0 8px #39ff14" }}>AWAITING_RESPONSE</span>
             <span className="cursor-blink">▋</span>
           </div>
         )}
       </motion.div>
 
-      {/* ── GREEN TEXT FIRST ── */}
+      {/* Green text — above button */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: done ? 1 : 0 }}
         transition={{ delay: 0.4 }}
-        className="mb-6 text-center"
+        className="mb-4 text-center"
       >
-        <p className="font-vt323 text-[9px] tracking-[0.4em] text-ash/35 mb-2">
+        <p className="font-vt323 text-[9px] tracking-[0.4em] text-ash/35 mb-1">
           HACKATHON THEME UNLOCKED
         </p>
         <p
-          className="font-bebas text-xl md:text-3xl tracking-[0.18em]"
+          className="font-bebas text-lg md:text-2xl tracking-[0.18em]"
           style={{ color: "#39ff14", textShadow: "0 0 20px #39ff14aa" }}
         >
-          BUILD SOMETHING THAT HELPS ELEVEN SURVIVE
+          BUILD SOMETHING THAT HELPS ELEVEN SURVIVE OR ESCAPE
         </p>
-        <p className="font-vt323 text-xs text-ash/50 mt-2 tracking-wide">
+        <p className="font-vt323 text-xs text-ash/50 mt-1 tracking-wide">
           AI · HARDWARE · SOFTWARE · EXPERIENCE — ALL TRACKS OPEN
         </p>
       </motion.div>
 
-      {/* ── BUTTON BELOW ── */}
+      {/* Button — below green text */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: done ? 1 : 0, scale: done ? 1 : 0.9 }}

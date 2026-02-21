@@ -1,4 +1,4 @@
-# 🔴 UPSIDE DOWNED — Hackathon 2025 Website
+# 🔴 UPSIDE DOWNED — IGNIZ'26 Hackathon Participant Navigation
 
 An immersive, scroll-driven 3D storytelling website built with Next.js, React Three Fiber, and Tailwind CSS. Stranger Things themed hackathon landing page.
 

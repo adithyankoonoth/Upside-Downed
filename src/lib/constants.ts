@@ -59,7 +59,7 @@ export const STORY = {
   SIGNAL: {
     eyebrow: "HAWKINS NATIONAL LABORATORY — CLASSIFIED SIGNAL DETECTED",
     title: ["UPSIDE", "DOWNED"],
-    body: "An encrypted frequency is bleeding. Someone — or something — is trying to reach us from the other side.",
+    body: "An encrypted frequency is bleeding. It's faint, erratic, but unmistakably human. A distress signal. It's been traced to Hawkins, Indiana — site of the 1983 Demogorgon incident. The signal's origin is unknown. Its content is indecipherable. But it's getting stronger.",
     tag: "IGNIZ'26 // FREQUENCY: 14.8 MHz",
   },
   ORIGIN: {

@@ -96,7 +96,7 @@ function PhaseSignal() {
         </motion.h1>
         <motion.div variants={fadeUp} className="mt-6 mb-4"><Divider color="#ff1a1a" /></motion.div>
         <motion.p variants={fadeUp} className="font-vt323 text-lg md:text-xl text-ash/80 max-w-md leading-relaxed">
-          {s.body}
+          {s.body1}
         </motion.p>
         <motion.div variants={fadeUp} className="mt-8 flex items-end gap-[2px]">
           {bars.map((b, i) => (
@@ -330,10 +330,10 @@ function PhaseClimax({ active }: { active: boolean }) {
           className="font-bebas text-lg md:text-2xl tracking-[0.18em]"
           style={{ color: "#39ff14", textShadow: "0 0 20px #39ff14aa" }}
         >
-          BUILD SOMETHING THAT HELPS ELEVEN SURVIVE OR ESCAPE
+          THE GATE IS OPEN FOR SIX HOURS. BUILD SOMETHING THAT BRINGS HER HOME.
         </p>
         <p className="font-vt323 text-xs text-ash/50 mt-1 tracking-wide">
-          AI · HARDWARE · SOFTWARE · EXPERIENCE — ALL TRACKS OPEN
+          AI · HARDWARE · SOFTWARE  — ALL TRACKS OPEN
         </p>
       </motion.div>
 

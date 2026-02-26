@@ -57,7 +57,7 @@ export const DOSSIERS = [
 
 export const STORY = {
   SIGNAL: {
-    eyebrow: "UPSIDE DOWNED // HAWKINS NETWORK — SIGNAL DETECTED",
+    eyebrow: "IGNIZ'26 // HAWKINS NETWORK — SIGNAL DETECTED",
     title: ["UPSIDE", "DOWNED"],
     body1: "It has been 9 days since anyone last saw her.",
     body2: "No body. No trace. No goodbye. Just a bedroom light flickering at 2am and then nothing. The town moved on. The lab sealed its files. But somewhere in the space between this world and the next, a heartbeat continues. Faint. Stubborn. Alive. She is still out there. And she is waiting.",
